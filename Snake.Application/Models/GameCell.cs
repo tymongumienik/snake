@@ -7,7 +7,7 @@ public enum GameCell
     Food,
 };
 
-static class GameCellExtensions
+public static class GameCellExtensions
 {
     public static string ToSymbol(this GameCell cell)
     {

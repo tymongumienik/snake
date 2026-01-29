@@ -77,6 +77,6 @@ public class GameInstance
             }
             builder.AppendLine();
         }
-        return builder.ToString();
+        return builder.ToString().Trim();
     }
 }
