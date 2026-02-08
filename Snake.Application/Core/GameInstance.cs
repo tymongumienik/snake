@@ -16,7 +16,7 @@ public class GameInstance
     public MoveDirection Direction { get; private set; } = MoveDirection.Right;
 
     public event Action<GameInstance>? GameOver;
-    public bool Active { get; private set; } = true;
+    public bool Active { get; internal set; } = true;
     public bool HasWon { get; private set; } = false;
 
     public GameInstance(GameConfig config, Random random)

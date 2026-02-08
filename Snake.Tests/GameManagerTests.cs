@@ -73,6 +73,8 @@ public class GameManagerTests
 
         manager.EndGame(game.Id);
 
+        Console.WriteLine(game);
+
         Assert.False(game.Active);
     }
 

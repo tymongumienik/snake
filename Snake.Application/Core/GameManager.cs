@@ -25,7 +25,7 @@ public class GameManager(IDataRepository repository)
     {
         if (_activeGames.TryGetValue(gameId, out var game))
         {
-            // Active is set is ended by GameInstance, no need to worry here
+            game.Active = false;
             var result = new GameResult(game.Score, game.Config.UserName);
             repository.SaveGameResult(result);
             _activeGames.Remove(gameId);

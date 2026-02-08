@@ -36,7 +36,8 @@ public class GameInstanceTests
             }
         }
 
-        Assert.Equal(8 * 8 - 1, emptyCount);
+        // one is a player, one is food
+        Assert.Equal(8 * 8 - 2, emptyCount);
     }
 
     [Fact]
