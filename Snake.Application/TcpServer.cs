@@ -2,6 +2,8 @@ using System.Net;
 using System.Net.Sockets;
 using Snake.Application.Core;
 
+namespace Snake.Application;
+
 // inspired by https://medium.com/@jm.keuleyan/c-tcp-communications-building-a-client-server-chat-a2155d585191
 // made async because learn.microsoft.com says so
 public class TcpServer(GameManager manager)

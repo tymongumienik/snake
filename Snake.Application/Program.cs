@@ -1,6 +1,4 @@
-﻿using System.Net;
-using System.Net.Sockets;
-using Snake.Application.Core;
+﻿using Snake.Application.Core;
 using Snake.Application.Models;
 using Snake.Application.Repositories;
 
