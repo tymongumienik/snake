@@ -1,4 +1,6 @@
-﻿using Snake.Application.Core;
+﻿using System.Net;
+using System.Net.Sockets;
+using Snake.Application.Core;
 using Snake.Application.Models;
 using Snake.Application.Repositories;
 
@@ -6,10 +8,13 @@ namespace Snake.Application;
 
 internal class Program
 {
-    static void Main(string[] args)
+    static async Task Main()
     {
         IDataRepository repository = new MockDataRepository();
         GameManager manager = new(repository);
+
+        // var server = new TcpServer(manager: manager);
+        // await server.StartAsync(port: 4267);
 
         var game = manager.StartNewGame(new GameConfig(
             gridSize: 15,
@@ -47,7 +52,6 @@ internal class Program
 
             Thread.Sleep(200);
         }
-
 
         Console.WriteLine(game.HasWon ? "You win!" : "Game over :(");
     }
