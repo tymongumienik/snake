@@ -138,7 +138,7 @@ public class GameInstance
                 else
                     sb.Append(GameCell.Empty.ToSymbol());
             }
-            sb.AppendLine();
+            sb.Append("\r\n"); // required by TCP socket
         }
 
         return sb.ToString().TrimEnd();
