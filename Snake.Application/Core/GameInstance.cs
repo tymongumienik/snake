@@ -24,7 +24,7 @@ public class GameInstance
         Config = config;
         _random = random;
 
-        Body.AddFirst((0, 0));
+        Body.AddFirst(((int)(config.GridSize / 2), (int)(config.GridSize / 2)));
 
         RandomizeFoodLocation();
     }
@@ -53,6 +53,12 @@ public class GameInstance
         FoodLocation = cells[index];
     }
 
+    private void EndGame()
+    {
+        Active = false;
+        GameOver?.Invoke(this);
+    }
+
     private void EndGameIfInvalid()
     {
         if (!Active) return;
@@ -61,12 +67,15 @@ public class GameInstance
         var head = Body.First.Value;
 
         // head collision with wall or self (RIP)
-        if (head.x < 0 || head.x >= Config.GridSize || head.y < 0 || head.y >= Config.GridSize || Body.Skip(1).Contains(head))
+        if (IsHeadInvalid(head))
         {
-            Active = false;
-            GameOver?.Invoke(this);
-            return;
+            EndGame();
         }
+    }
+
+    private bool IsHeadInvalid(Coordinate head)
+    {
+        return head.x < 0 || head.x >= Config.GridSize || head.y < 0 || head.y >= Config.GridSize || Body.Skip(1).Contains(head);
     }
 
     public void Tick(MoveDirection? move = null)
@@ -87,6 +96,12 @@ public class GameInstance
         var (dx, dy) = Direction.ToMovementDelta();
         var (headX, headY) = Body.First.Value;
         var newHead = (headX + dx, headY + dy);
+
+        if (IsHeadInvalid(newHead))
+        {
+            EndGame();
+            return;
+        }
 
         // insert head at beginning (snake logic)
         Body.AddFirst(newHead);

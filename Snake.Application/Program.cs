@@ -21,7 +21,6 @@ internal class Program
 
         Console.CursorVisible = false;
 
-        // TODO: one Render too much when going into wall
         while (game.Active)
         {
             if (Console.KeyAvailable)
