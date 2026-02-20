@@ -4,7 +4,7 @@ using System.Text;
 using Snake.Application.Core;
 using Snake.Application.Models;
 
-namespace Snake.Application;
+namespace Snake.Infrastructure.Networking;
 
 // inspired by https://medium.com/@jm.keuleyan/c-tcp-communications-building-a-client-server-chat-a2155d585191
 // made async because learn.microsoft.com says so
