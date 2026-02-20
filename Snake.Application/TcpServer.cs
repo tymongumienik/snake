@@ -34,7 +34,7 @@ public class TcpServer(GameManager manager)
             try
             {
                 var client = await listener.AcceptTcpClientAsync();
-                client.NoDelay = true;
+                client.NoDelay = true; // in manual testing, this is found to make the game more responsive
 
                 Console.WriteLine("Client connected!");
 
