@@ -1,4 +1,9 @@
-﻿namespace Snake.Server;
+﻿using Snake.Application.Core;
+using Snake.Application.Repositories;
+using Snake.Infrastructure.Networking;
+using Snake.Infrastructure.Persistence;
+
+namespace Snake.Server;
 
 internal class Program
 {
